@@ -12,7 +12,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 if(mysqli_connect_errno($con)) {
     die("Failed to connect to MySQL: " . mysqli_connect_error());
 } 
-$sql ="SELECT * FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id INNER JOIN LAND_TB ON PROPERTY_TB.property_id = LAND_TB.property_id  WHERE property_type='land' AND land_type='For Rent'";
+$sql ="SELECT * FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id INNER JOIN LAND_TB ON PROPERTY_TB.property_id = LAND_TB.property_id  WHERE property_type='land' AND land_type='For Lease'";
 $result = mysqli_query($con, $sql);
 
 // an array to save the application data

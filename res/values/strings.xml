@@ -34,7 +34,7 @@
     <string name="telephone">Enter your Telephone number</string>
     <string name="telhint">+254700000000</string>
     <string name="submit">Submit</string>
-    <string name="Search">Fill in spaces to search property</string>
+    <string name="Search">Select a Search creteria to Search Property</string>
     <string name="property">Select property</string>
     <string-array name="propertysearch">>
       <item>Land</item>

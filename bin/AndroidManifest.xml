@@ -50,12 +50,36 @@
         android:name="land.Results"
         android:label="@string/app_name">
         </activity>
+        <activity
+        android:name="land.Results2"
+        android:label="@string/app_name">
+        </activity>
+        <activity
+        android:name="land.Results3"
+        android:label="@string/app_name">
+        </activity>
                <activity
         android:name="commercial.Resultsc"
         android:label="@string/app_name">
         </activity>
+              <activity
+        android:name="commercial.Resultsc2"
+        android:label="@string/app_name">
+        </activity>
+              <activity
+        android:name="commercial.Resultsc3"
+        android:label="@string/app_name">
+        </activity>
                <activity
         android:name="residential.Resultsr"
+        android:label="@string/app_name">
+        </activity>
+                  <activity
+        android:name="residential.Resultsr2"
+        android:label="@string/app_name">
+        </activity>
+                  <activity
+        android:name="residential.Resultsr3"
         android:label="@string/app_name">
         </activity>
     </application>
