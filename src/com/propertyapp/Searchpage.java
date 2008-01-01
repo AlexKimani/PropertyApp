@@ -7,12 +7,16 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -43,7 +47,7 @@ public class Searchpage extends Activity implements OnClickListener{
 	// "http://xxx.xxx.x.x:1234/webservice/login.php";
 
 	// testing on Emulator:
-	private static final String LOGIN_URL = "http://10.0.2.2/webservice/loginpge.php";
+	private static final String LOGIN_URL = "http://10.0.2.2/Propertyapp/loginpge.php";
 
 	// testing from a real server:
 	// private static final String LOGIN_URL =
@@ -78,9 +82,13 @@ public class Searchpage extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.sub:
-			Intent o = new Intent(this, Dashboard.class);
-			startActivity(o);
-			/*new AttemptLogin().execute();*/
+			if(idno.getText().toString().equals("") || (pword.getText().toString().equals(""))){
+				Toast.makeText(Searchpage.this, "Please fill all spaces", Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				new AttemptLogin().execute();	
+			}
 			break;
 		case R.id.register:
 			Intent i = new Intent(this, Register.class);
@@ -133,11 +141,11 @@ public class Searchpage extends Activity implements OnClickListener{
 				success = json.getInt(TAG_SUCCESS);
 				if (success == 1) {
 					Log.d("Login Successful!", json.toString());
-/*					// save user data
-					SharedPreferences sp = PreferenceManager
+					// save user data
+/*					SharedPreferences sp = PreferenceManager
 							.getDefaultSharedPreferences(Searchpage.this);
 					Editor edit = sp.edit();
-					edit.putString("username", username);
+					edit.putString("username", user);
 					edit.commit();
 					*/
 					Intent i = new Intent(Searchpage.this, Dashboard.class);
@@ -148,7 +156,7 @@ public class Searchpage extends Activity implements OnClickListener{
 					Log.d("Login Failure!", json.getString(TAG_MESSAGE));
 					return json.getString(TAG_MESSAGE);
 				}
-			} catch (JSONException e) {
+			}  catch (JSONException e) {
 				e.printStackTrace();
 			}
 
@@ -156,11 +164,10 @@ public class Searchpage extends Activity implements OnClickListener{
 
 		}
 
-		protected void onPostExecute(String file_url) {
+	protected void onPostExecute(String file_url) {
 			// dismiss the dialog once product deleted
 			pDialog.dismiss();
-			if (file_url != null) {
-				Toast.makeText(Searchpage.this, file_url, Toast.LENGTH_LONG).show();
+			if (file_url != null) {Toast.makeText(Searchpage.this, file_url, Toast.LENGTH_LONG).show();
 			}
 
 		}

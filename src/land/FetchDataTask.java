@@ -61,15 +61,15 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
     }
     
     @Override
-    protected void onPostExecute(String sJson) {
-        if(sJson == null) {
+    protected void onPostExecute(String is) {
+        if(is == null) {
             if(listener != null) listener.onFetchFailure(msg);
             return;
         }        
         
         try {
             // convert json string to json array
-            JSONArray aJson = new JSONArray(sJson);
+            JSONArray aJson = new JSONArray(is);
             // create apps list
             List<Application> apps = new ArrayList<Application>();
             

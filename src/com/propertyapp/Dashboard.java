@@ -1,13 +1,6 @@
 package com.propertyapp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import land.Results;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
 
 import residential.Resultsr;
 
@@ -15,9 +8,7 @@ import commercial.Resultsc;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,18 +25,7 @@ public class Dashboard extends Activity implements OnClickListener{
 	Button send;
 	EditText value,place;
 	Spinner type;
-	
-	 // JSON parser class
-    JSONParser jsonParser = new JSONParser();
-    String url = "http://10.0.2.2/Propertyapp/land.php"; 
-    //php register script
-    
-    //localhost :  
-    //testing on your device
-    //put your local ip instead,  on windows, run CMD > ipconfig
-    //or in mac's terminal type ifconfig and look for the ip under en0 or en1
-   // private static final String REGISTER_URL = "http://xxx.xxx.x.x:1234/webservice/register.php";
-    
+
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,8 +33,7 @@ public class Dashboard extends Activity implements OnClickListener{
 		send = (Button)findViewById(R.id.button1);
 		send.setOnClickListener(this);
 		value =(EditText)findViewById(R.id.idsearch);
-		place =(EditText)findViewById(R.id.location);
-		
+		place =(EditText)findViewById(R.id.location);		
 		 type =(Spinner)findViewById(R.id.spinner1);
 	        // Create an ArrayAdapter using the string array and a default spinner layout
 			ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.propertysearch, android.R.layout.simple_spinner_item);
@@ -88,7 +67,6 @@ public class Dashboard extends Activity implements OnClickListener{
 		else
 		{
 		if(type.getSelectedItem().equals("Land")){
-			new senddata().execute();
 			Intent i = new Intent(Dashboard.this, Results.class);
 			startActivity(i);
 		}
@@ -107,37 +85,6 @@ public class Dashboard extends Activity implements OnClickListener{
 		}
 		}
 	}
-	
-	 
-    class senddata extends AsyncTask<String, String, String> {
-			String val1 = value.getText().toString();
-			String plc1 = place.getText().toString();
-			 JSONParser jsonParser = new JSONParser();
-			@Override
-			protected String doInBackground(String... args) {
-				// Building Parameters
-				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("price",val1));
-				params.add(new BasicNameValuePair("location",plc1));  
-				Log.d("request!", "starting");
-				
-				//Posting user data to script 
-				JSONObject json2 = jsonParser.makeHttpRequest(url, "POST", params);
-	 
-	            return null;
-				
-			}
-			
-	        protected void onPostExecute(String file_url) {
-	            // dismiss the dialog once product deleted
-	           /* dialog.dismiss();*/
-	            if (file_url != null){
-	            	Toast.makeText(Dashboard.this, file_url, Toast.LENGTH_LONG).show();
-	            }
-	 
-	        }
-			
-		}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
