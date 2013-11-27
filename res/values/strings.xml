@@ -9,5 +9,7 @@
     <string name="passcode">Enter your Password</string>
     <string name="passhint">**********</string>
     <string name="login">Login</string>
+    <string name="updatepass">Forgot Pasword?</string>
+    <string name="register">New User Regstration</string>
 
 </resources>
