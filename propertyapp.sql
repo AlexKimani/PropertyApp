@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2013 at 08:52 AM
+-- Generation Time: Nov 27, 2013 at 09:28 AM
 -- Server version: 5.5.34-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3
 
@@ -27,8 +27,6 @@ USE `PropertyApp`;
 --
 -- Table structure for table `COMMERCIAL_TB`
 --
--- Creation: Nov 27, 2013 at 07:39 AM
---
 
 CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
   `com_id` int(11) NOT NULL,
@@ -42,8 +40,6 @@ CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
 
 --
 -- Table structure for table `LAND_TB`
---
--- Creation: Nov 27, 2013 at 07:43 AM
 --
 
 CREATE TABLE IF NOT EXISTS `LAND_TB` (
@@ -59,8 +55,6 @@ CREATE TABLE IF NOT EXISTS `LAND_TB` (
 
 --
 -- Table structure for table `PROPERTY_TB`
---
--- Creation: Nov 27, 2013 at 07:32 AM
 --
 
 CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
@@ -79,8 +73,6 @@ CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
 --
 -- Table structure for table `RESIDENTIAL_TB`
 --
--- Creation: Nov 27, 2013 at 07:41 AM
---
 
 CREATE TABLE IF NOT EXISTS `RESIDENTIAL_TB` (
   `residential_id` int(11) NOT NULL,
@@ -95,13 +87,12 @@ CREATE TABLE IF NOT EXISTS `RESIDENTIAL_TB` (
 --
 -- Table structure for table `USER_TB`
 --
--- Creation: Nov 27, 2013 at 07:21 AM
---
 
 CREATE TABLE IF NOT EXISTS `USER_TB` (
   `user_fname` varchar(45) NOT NULL,
   `user_sname` varchar(45) NOT NULL,
   `user_idno` varchar(20) NOT NULL,
+  `user_password` varchar(30) NOT NULL,
   `user_occupation` varchar(60) NOT NULL,
   `user_gender` varchar(10) NOT NULL,
   `user_address` varchar(60) NOT NULL,
