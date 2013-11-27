@@ -1,8 +1,10 @@
 package com.propertyapp;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -20,7 +22,7 @@ public class Searchpage extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.searchpagexml);
+		setContentView(R.layout.login);
 //		the toast code to help the user know what to do in the page
 		Context context = getApplicationContext();
 		CharSequence text = "Please login to continue...";		
@@ -41,7 +43,7 @@ public class Searchpage extends Activity implements OnClickListener{
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				// write the code to validate and fetch the login credentials from the database
 				
 			}
 			
@@ -52,7 +54,8 @@ public class Searchpage extends Activity implements OnClickListener{
 			@Override
 			public void onClick(View v) {
 				// add the intent that the link should redirect to
-				
+				Intent i = new Intent(getApplicationContext(), Updatepass.class);
+				startActivity(i);
 			}
 			
 		});

@@ -11,5 +11,9 @@
     <string name="login">Login</string>
     <string name="updatepass">Forgot Pasword?</string>
     <string name="register">New User Regstration</string>
+    <string name="instruction2">Fill in the spaces to reset your password</string>
+    <string name="newpasscode">Enter your new Password</string>
+    <string name="confirmpass">Confirm Password</string>
+    <string name="update">Update</string>
 
 </resources>
