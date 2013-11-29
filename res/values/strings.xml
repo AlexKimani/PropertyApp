@@ -13,7 +13,32 @@
     <string name="register">New User Regstration</string>
     <string name="instruction2">Fill in the spaces to reset your password</string>
     <string name="newpasscode">Enter your new Password</string>
-    <string name="confirmpass">Confirm Password</string>
+    <string name="confirmpass">Confirm your Password</string>
     <string name="update">Update</string>
-
+    <string name="instruction3">Fill the spaces to register as user</string>
+    <string name="firstname">Enter Firstname</string>
+    <string name="fnamehint">John</string>
+    <string name="secondname">Enter Secondname</string>
+    <string name="snamehint">Doe</string>
+    <string name="gender1">Select your Gender</string>
+    <string-array name="gender">
+        <item>....</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string name="occupation">Enter your occupation</string>
+    <string name="occupationhint">Engineer</string>
+    <string name="email">Enter your Email Address</string>
+    <string name="emailhint">johndoe@propertyapp.com</string>
+    <string name="telephone">Enter your Telephone number</string>
+    <string name="telhint">+254700000000</string>
+    <string name="submit">Submit</string>
+    <string name="Search">Fill in spaces to search property</string>
+    <string name="property">Select property</string>
+    <string-array name="propertysearch">
+      <item>....</item>
+      <item>Land</item>
+      <item>Commercial</item>
+      <item>Residential</item>
+    </string-array>
 </resources>

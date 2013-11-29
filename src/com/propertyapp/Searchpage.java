@@ -66,7 +66,8 @@ public class Searchpage extends Activity implements OnClickListener{
 			@Override
 			public void onClick(View v) {
 				// add the intent that the link should redirect to
-				
+				Intent i = new Intent(getApplicationContext(), Register.class);
+				startActivity(i);
 			}
 		});
 	}

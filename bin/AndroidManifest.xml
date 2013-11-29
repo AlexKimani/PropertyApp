@@ -26,6 +26,10 @@
         android:name="com.propertyapp.Updatepass"
         android:label="@string/app_name">
         </activity>
+        <activity
+        android:name="com.propertyapp.Register"
+        android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>
