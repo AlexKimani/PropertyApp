@@ -41,4 +41,7 @@
       <item>Commercial</item>
       <item>Residential</item>
     </string-array>
+    <string name="location">Enter location if any</string>
+    <string name="lochint">Kahawa</string>
+    <string name="searchbtn">Search</string>
 </resources>

@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ScrollView 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true"
-   	tools:context=".Updatepass"
+   	tools:context=".Dashboard"
     >
     
     <RelativeLayout 
@@ -45,7 +44,8 @@
             android:layout_below="@+id/textView2"
             android:layout_marginTop="15dp"
             android:ems="10"
-            android:hint="@string/idhint" >
+            android:hint="@string/idhint"
+            android:inputType="phone" >
 
             <requestFocus />
         </EditText>
@@ -65,9 +65,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView3"
+            android:layout_below="@+id/textView3"
             android:layout_centerVertical="true"
+            android:layout_marginTop="13dp"
 			android:entries="@array/propertysearch"
 			android:prompt="@string/property"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/spinner1"
+            android:layout_below="@+id/spinner1"
+            android:layout_marginTop="16dp"
+            android:text="@string/location"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="17dp"
+            android:ems="10" 
+            android:hint="@string/lochint"/>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/location"
+            android:layout_below="@+id/location"
+            android:layout_marginTop="26dp"
+            android:text="@string/searchbtn" />
         
     </RelativeLayout>
 </ScrollView>

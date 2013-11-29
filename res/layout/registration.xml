@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:fillViewport="true"
-    tools:context=".Updatepass" >
+    tools:context=".Register" >
     
     <RelativeLayout
         android:layout_width="match_parent"
