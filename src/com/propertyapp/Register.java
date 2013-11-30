@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Register extends Activity implements OnClickListener {
 	 /**
@@ -28,7 +29,7 @@ public class Register extends Activity implements OnClickListener {
     private static String KEY_CREATED_AT = "created_at";
     private static String KEY_ERROR = "error";
     
-    EditText firstname, secondname,idnumber,password,occupation,address,email,phonenumber;
+    EditText firstname, secondname,idnumber,password,occupation,address,email,phonenumber,confirmpass;
     Spinner gender;
 	Button send;
     
@@ -48,6 +49,31 @@ public class Register extends Activity implements OnClickListener {
 		email = (EditText)findViewById(R.id.email);
 		phonenumber = (EditText)findViewById(R.id.telephone);
 		gender =(Spinner)findViewById(R.id.spinner1);
+		confirmpass=(EditText)findViewById(R.id.passwordcon);
+		
+		send.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				
+				 if (  ( !firstname.getText().toString().equals("")) && ( !secondname.getText().toString().equals(""))&& ( !idnumber.getText().toString().equals("")) && ( !password.getText().toString().equals("")) && ( !occupation.getText().toString().equals("")) && ( !address.getText().toString().equals("")) && ( !email.getText().toString().equals("")) && ( !phonenumber.getText().toString().equals("")) && ( !gender.getSelectedItem().toString().equals("...."))&& ( !confirmpass.getText().toString().equals("")) )
+	                {
+					 if((password.getText().toString())!= (confirmpass.getText().toString())){
+						 Toast.makeText(getApplicationContext(),
+		                            "The passwords do not match check again", Toast.LENGTH_SHORT).show(); 
+					 }
+					 else{
+						 
+					 }
+	                }
+				 else{
+					 Toast.makeText(getApplicationContext(),
+	                            "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+				 }
+				
+			}
+			
+		});
 		
 	}
 	
