@@ -149,7 +149,8 @@
             android:layout_below="@+id/textView11"
             android:ems="10" 
             android:layout_marginBottom="10dp"
-            android:hint="@string/addhint"/>
+            android:hint="@string/addhint"
+            android:inputType="phone"/>
 
         <TextView
             android:id="@+id/textView7"

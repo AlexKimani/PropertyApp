@@ -185,7 +185,7 @@ public class Searchpage extends Activity implements OnClickListener{
 	                        pDialog.setMessage("Loading User Space");
 	                        pDialog.setTitle("Getting Data");
 	                        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-	                        JSONObject json_user = json.getJSONObject("user");
+	                        JSONObject json_user = json.getJSONObject("USER_TB");
 	                        /**
 	                         * Clear all previous data in SQlite database.
 	                         **/
@@ -215,6 +215,8 @@ public class Searchpage extends Activity implements OnClickListener{
 	            }
 	       }
 	    }
+	    
+	    
 	    
 	}
 	 
