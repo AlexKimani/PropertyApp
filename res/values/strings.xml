@@ -45,4 +45,6 @@
     <string name="searchbtn">Search</string>
     <string name="address">Enter your address</string>
     <string name="addhint">21461-00505</string>
+    <string name="badpasscode">Incorrect password</string>
+    <string name="Notice">Warning</string>
 </resources>

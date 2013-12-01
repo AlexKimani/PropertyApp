@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2013 at 09:28 AM
+-- Generation Time: Dec 01, 2013 at 09:42 AM
 -- Server version: 5.5.34-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3
 
@@ -29,12 +29,12 @@ USE `PropertyApp`;
 --
 
 CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
-  `com_id` int(11) NOT NULL,
+  `com_id` int(11) NOT NULL AUTO_INCREMENT,
   `commercial_bnum` varchar(45) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`com_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -43,13 +43,12 @@ CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
 --
 
 CREATE TABLE IF NOT EXISTS `LAND_TB` (
-  `land_id` int(11) NOT NULL,
+  `land_id` int(11) NOT NULL AUTO_INCREMENT,
   `land_title` varchar(45) NOT NULL,
-  `land_location` varchar(60) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`land_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -58,15 +57,15 @@ CREATE TABLE IF NOT EXISTS `LAND_TB` (
 --
 
 CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
-  `property_id` int(11) NOT NULL,
+  `property_id` int(11) NOT NULL AUTO_INCREMENT,
   `property_name` varchar(60) NOT NULL,
-  `propert_size` varchar(45) NOT NULL,
+  `property_size` varchar(45) NOT NULL,
   `property_type` varchar(45) NOT NULL,
   `property_location` varchar(60) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`property_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -75,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
 --
 
 CREATE TABLE IF NOT EXISTS `RESIDENTIAL_TB` (
-  `residential_id` int(11) NOT NULL,
+  `residential_id` int(11) NOT NULL AUTO_INCREMENT,
   `residential_nor` varchar(45) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`residential_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

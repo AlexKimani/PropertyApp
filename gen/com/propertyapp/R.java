@@ -73,11 +73,13 @@ public final class R {
         public static final int searchpage=0x7f080000;
     }
     public static final class string {
+        public static final int Notice=0x7f050023;
         public static final int Search=0x7f05001b;
         public static final int action_settings=0x7f050001;
         public static final int addhint=0x7f050021;
         public static final int address=0x7f050020;
         public static final int app_name=0x7f050000;
+        public static final int badpasscode=0x7f050022;
         public static final int confirmpass=0x7f05000c;
         public static final int email=0x7f050016;
         public static final int emailhint=0x7f050017;
