@@ -163,7 +163,7 @@ public class Searchpage extends Activity implements OnClickListener{
 		            inputStream.close();
 		         if(result.matches("2")){
 		        	 pDialog.dismiss();
-		        	Toast.makeText(getApplicationContext(), "ID Not Found Check again", Toast.LENGTH_LONG).show();		        	 
+		        		        	 
 		         }
 		         else {
 		           // String  password = result;
@@ -192,6 +192,14 @@ public class Searchpage extends Activity implements OnClickListener{
 //			  End of the the work of the code
 			  
 		}
+		protected void onPostExecute(Object result) {
+	        if(((String) result).matches("2")){
+	        	Toast.makeText(getApplicationContext(), "ID Not Found Check again", Toast.LENGTH_LONG).show();	
+	        }
+	        else if(result!= pass){
+	        	Toast.makeText(getApplicationContext(), "Incorrect password", Toast.LENGTH_LONG).show();
+	        }
+	     }
 		
 	}
 	    
