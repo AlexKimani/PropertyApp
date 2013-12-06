@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+        android:id="@+id/search"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/search"
+        android:title="@string/search"
+        />
+        <item
+        android:id="@+id/addland"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/land"
+        android:title="@string/addland"
+        />
+        <item
+        android:id="@+id/addresidential"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/residential"
+        android:title="@string/addresdential"
+        />
+        <item
+        android:id="@+id/addcommercial"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/commercial"
+        android:title="@string/addcommercial"
+        />
+    </menu>

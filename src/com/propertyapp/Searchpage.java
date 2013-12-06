@@ -12,15 +12,16 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import android.os.AsyncTask;
-import android.os.Bundle;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -177,7 +178,7 @@ public class Searchpage extends Activity implements OnClickListener{
 		            }
 		           else if(result!= pass){
 		        	   pDialog.dismiss();
-		        	
+		        	  /*Toast.makeText(Searchpage.this, "Incorrect password please check password", Toast.LENGTH_LONG).show();*/
 		            }
 		           
 		         }
@@ -185,24 +186,32 @@ public class Searchpage extends Activity implements OnClickListener{
 		            catch (Exception e)
 		            {
 		            	pDialog.dismiss();
-		                Toast.makeText(getApplicationContext(), "Error inside set:"+e.toString(), Toast.LENGTH_LONG).show();
+		                Toast.makeText(Searchpage.this, "Error inside set:"+e.toString(), Toast.LENGTH_LONG).show();
 		            }
 			return null;
 			  
 //			  End of the the work of the code
 			  
 		}
-		protected void onPostExecute(Object result) {
-	        if(((String) result).matches("2")){
-	        	Toast.makeText(getApplicationContext(), "ID Not Found Check again", Toast.LENGTH_LONG).show();	
-	        }
-	        else if(result!= pass){
-	        	Toast.makeText(getApplicationContext(), "Incorrect password", Toast.LENGTH_LONG).show();
-	        }
-	     }
 		
 	}
-	    
+	 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.login:
+	        	Intent i = new Intent(getApplicationContext(), Searchpage.class);
+				startActivity(i);
+	            return true;
+	        case R.id.reset:
+	        	pword.setText("");
+	        	idno.setText("");
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 	}
 	 
 

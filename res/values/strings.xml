@@ -47,4 +47,22 @@
     <string name="addhint">21461-00505</string>
     <string name="badpasscode">Incorrect password</string>
     <string name="Notice">Warning</string>
+    <string name="addland">Add Land</string>
+    <string name="addresdential">Add Residential House</string>
+    <string name="addcommercial">Add Commercial House</string>
+    <string name="search">Search Property</string>
+    <string name="reset">Reset</string>
+    <string name="register1">Register User</string>
+    <string name="pname">Enter Propety Name</string>
+    <string name="pnamehint">SouthGate</string>
+    <string name="psize">Enter Property Size</string>
+    <string name="psizehint">3 acres</string>
+    <string name="psizehhint">4 story</string>
+    <string name="plocation">Enter Property Location</string>
+    <string name="plocationhint">Kahawa</string>
+    <string name="ltitle">Enter Land Title</string>
+    <string name="ltitlehint">6757575675</string>
+    <string name="pinstruction">Fill to post New Property</string>
+    <string name="bnumber">Enter Building Number</string>
+    <string name="bnumberhint">65</string>
 </resources>
