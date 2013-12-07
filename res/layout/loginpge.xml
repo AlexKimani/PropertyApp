@@ -4,6 +4,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fillViewport="true"
+        android:background="#BCC6CC"
         tools:context=".Searchpage">
 <RelativeLayout
     android:layout_width="match_parent"
@@ -52,8 +53,8 @@
         android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/login"
-        android:layout_below="@+id/login"
+        android:layout_alignLeft="@+id/sub"
+        android:layout_below="@+id/sub"
         android:layout_marginTop="14dp"
         android:text="@string/updatepass"
         android:textColor="#00c6bd"
@@ -93,7 +94,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/sub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password"

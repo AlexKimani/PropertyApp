@@ -37,13 +37,14 @@ public final class R {
         public static final int user=0x7f020009;
     }
     public static final class id {
-        public static final int addcommercial=0x7f09002b;
-        public static final int addland=0x7f090029;
-        public static final int addresidential=0x7f09002a;
+        public static final int addcommercial=0x7f090030;
+        public static final int addland=0x7f09002e;
+        public static final int addmore=0x7f090031;
+        public static final int addresidential=0x7f09002f;
         public static final int address=0x7f09001d;
         public static final int bnumber=0x7f090008;
         public static final int button1=0x7f09000d;
-        public static final int confirmpass=0x7f090027;
+        public static final int confirmpass=0x7f09002c;
         public static final int csubmit=0x7f090009;
         public static final int email=0x7f09001f;
         public static final int fname=0x7f090016;
@@ -52,21 +53,27 @@ public final class R {
         public static final int idno=0x7f090019;
         public static final int idsearch=0x7f09000a;
         public static final int location=0x7f09000c;
-        public static final int login=0x7f090014;
+        public static final int login=0x7f090033;
         public static final int ltitle=0x7f09000f;
-        public static final int newpass=0x7f090026;
+        public static final int newpass=0x7f09002b;
+        public static final int nor=0x7f090028;
         public static final int occupation=0x7f09001b;
         public static final int password=0x7f090012;
         public static final int passwordcon=0x7f090024;
         public static final int plocation=0x7f090006;
+        public static final int plocation1=0x7f090027;
         public static final int pname=0x7f090002;
+        public static final int pname1=0x7f090025;
         public static final int psize=0x7f090004;
+        public static final int psize1=0x7f090026;
         public static final int pukubwa=0x7f09000e;
         public static final int register=0x7f090015;
-        public static final int reset=0x7f09002c;
-        public static final int search=0x7f090028;
+        public static final int reset=0x7f090032;
+        public static final int rsubmit=0x7f090029;
+        public static final int search=0x7f09002d;
         public static final int sname=0x7f090017;
         public static final int spinner1=0x7f09000b;
+        public static final int sub=0x7f090014;
         public static final int submit=0x7f090010;
         public static final int telephone=0x7f090021;
         public static final int textView1=0x7f090000;
@@ -81,21 +88,22 @@ public final class R {
         public static final int textView8=0x7f090020;
         public static final int textView9=0x7f090022;
         public static final int userid=0x7f090011;
-        public static final int username=0x7f090025;
+        public static final int username=0x7f09002a;
     }
     public static final class layout {
         public static final int commercial=0x7f030000;
         public static final int dashboard=0x7f030001;
         public static final int land=0x7f030002;
-        public static final int login=0x7f030003;
+        public static final int loginpge=0x7f030003;
         public static final int registration=0x7f030004;
         public static final int residential=0x7f030005;
         public static final int updatepass=0x7f030006;
     }
     public static final class menu {
         public static final int dashboardmenu=0x7f080000;
-        public static final int regmenu=0x7f080001;
-        public static final int searchpage=0x7f080002;
+        public static final int property=0x7f080001;
+        public static final int regmenu=0x7f080002;
+        public static final int searchpage=0x7f080003;
     }
     public static final class string {
         public static final int Notice=0x7f050023;
@@ -125,7 +133,10 @@ public final class R {
         public static final int login=0x7f050007;
         public static final int ltitle=0x7f050031;
         public static final int ltitlehint=0x7f050032;
+        public static final int more=0x7f050037;
         public static final int newpasscode=0x7f05000b;
+        public static final int nor=0x7f050036;
+        public static final int norhint=0x7f050038;
         public static final int occupation=0x7f050014;
         public static final int occupationhint=0x7f050015;
         public static final int passcode=0x7f050005;

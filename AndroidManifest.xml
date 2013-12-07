@@ -43,6 +43,10 @@
         android:name="com.propertyapp.Commercial"
         android:label="@string/app_name">
         </activity>
+        <activity
+        android:name="com.propertyapp.Residential"
+        android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+       <item
+        android:id="@+id/addmore"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/more"
+        android:icon="@drawable/residential"/>
+    <item
+      	android:id="@+id/reset"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/reset"
+        android:icon="@drawable/refresh"  
+     />  
+    </menu>

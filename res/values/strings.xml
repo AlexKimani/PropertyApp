@@ -65,4 +65,8 @@
     <string name="pinstruction">Fill to post New Property</string>
     <string name="bnumber">Enter Building Number</string>
     <string name="bnumberhint">65</string>
+    <string name="nor">Enter the Number of Rooms</string>
+    <string name="more">Add Property</string>
+    <string name="norhint">4 bedroom</string>
+    
 </resources>

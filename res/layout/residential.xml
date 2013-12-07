@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true"
+    android:background="#BCC6CC"
    	tools:context=".Land"
     >
     
@@ -21,30 +22,29 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/pinstruction" 
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/pinstruction"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="16dp"
-            android:text="@string/psize"
+            android:text="@string/pname"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
-            android:id="@+id/pukubwa"
+            android:id="@+id/pname1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView2"
             android:layout_below="@+id/textView2"
+            android:layout_marginTop="18dp"
             android:ems="10"
-            android:hint="@string/psizehint"
-            android:layout_marginTop="8dp" >
+            android:hint="@string/pnamehint" >
 
             <requestFocus />
         </EditText>
@@ -53,49 +53,70 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/pukubwa"
-            android:layout_below="@+id/pukubwa"
-            android:layout_marginTop="24dp"
-            android:text="@string/plocation"
+            android:layout_alignLeft="@+id/pname1"
+            android:layout_below="@+id/pname1"
+            android:layout_marginTop="15dp"
+            android:text="@string/psize"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
-            android:id="@+id/plocation"
+            android:id="@+id/psize1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView3"
             android:layout_below="@+id/textView3"
-            android:layout_marginTop="14dp"
-            android:ems="10" 
-            android:hint="@string/plocationhint"/>
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/psizehhint" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/plocation"
-            android:layout_below="@+id/plocation"
+            android:layout_alignLeft="@+id/psize1"
+            android:layout_below="@+id/psize1"
             android:layout_marginTop="16dp"
-            android:text="@string/ltitle"
+            android:text="@string/plocation"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
-            android:id="@+id/ltitle"
+            android:id="@+id/plocation1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView4"
             android:layout_below="@+id/textView4"
-            android:layout_marginTop="15dp"
-            android:ems="10" 
-            android:hint="@string/ltitlehint"/>
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="@string/plocationhint" />
 
-        <Button
-            android:id="@+id/submit"
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/ltitle"
-            android:layout_below="@+id/ltitle"
-            android:layout_marginTop="31dp"
+            android:layout_alignLeft="@+id/plocation1"
+            android:layout_below="@+id/plocation1"
+            android:layout_marginTop="16dp"
+            android:text="@string/nor"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/nor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:ems="10"
+            android:hint="@string/norhint"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/rsubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/nor"
+            android:layout_below="@+id/nor"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/submit" />
 
     </RelativeLayout>

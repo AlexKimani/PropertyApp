@@ -30,15 +30,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Searchpage extends Activity implements OnClickListener{
-	Button login;
-	EditText idno,pword;
+    EditText idno,pword;
 	TextView changepass,register;
-	
-		
+	Button login;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login);
+		setContentView(R.layout.loginpge);
 //		the toast code to help the user know what to do in the page
 		Context context = getApplicationContext();
 		CharSequence text = "Please login to continue...";		
@@ -46,70 +44,52 @@ public class Searchpage extends Activity implements OnClickListener{
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.setGravity(Gravity.BOTTOM, 0, duration);
 		toast.show();
-		
-// link the variables to the items on the xml page
-		login = (Button)findViewById(R.id.login);
+	    login = (Button)findViewById(R.id.sub);
+		login.setOnClickListener(this);
 		idno = (EditText)findViewById(R.id.userid);
 		pword= (EditText)findViewById(R.id.password);
 		changepass=(TextView)findViewById(R.id.forgotpass);
+		changepass.setOnClickListener(this);
 		register= (TextView)findViewById(R.id.register);
+		register.setOnClickListener(this);
+		}
+
+	public void  onClick(View v){
+
+		switch(v.getId()){
+		case R.id.sub:
+			  if (  ( !idno.getText().toString().equals("")) && ( !pword.getText().toString().equals("")) )
+              {
+				 new login().execute();
+			          		         
+              }
+              else if ( ( !idno.getText().toString().equals("")) )
+              {
+                  Toast.makeText(getApplicationContext(),
+                          "Please fill in the Password field", Toast.LENGTH_SHORT).show();
+              }
+              else if ( ( !pword.getText().toString().equals("")) )
+              {
+                  Toast.makeText(getApplicationContext(),
+                          "Please fill in the ID Number field", Toast.LENGTH_SHORT).show();
+              }
+              else
+              {
+                  Toast.makeText(getApplicationContext(),
+                          "Please fill in the ID Number and Password fields", Toast.LENGTH_SHORT).show();
+              }	
+			  break;
+		case R.id.forgotpass:
+			Intent i = new Intent(getApplicationContext(), Updatepass.class);
+			startActivity(i);
+			break;
+		case R.id.register:
+			Intent r = new Intent(getApplicationContext(), Register.class);
+			startActivity(r);
+			break;
+		}
 		
-// giving the login button work to do after it is clicked
-		login.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// write the code to validate and fetch the login credentials from the database
-				
-				  if (  ( !idno.getText().toString().equals("")) && ( !pword.getText().toString().equals("")) )
-	                {
-					  new login().execute();
-	                }
-	                else if ( ( !idno.getText().toString().equals("")) )
-	                {
-	                    Toast.makeText(getApplicationContext(),
-	                            "Please fill in the Password field", Toast.LENGTH_SHORT).show();
-	                }
-	                else if ( ( !pword.getText().toString().equals("")) )
-	                {
-	                    Toast.makeText(getApplicationContext(),
-	                            "Please fill in the ID Number field", Toast.LENGTH_SHORT).show();
-	                }
-	                else
-	                {
-	                    Toast.makeText(getApplicationContext(),
-	                            "Please fill in the ID Number and Password fields", Toast.LENGTH_SHORT).show();
-	                }				
-				/*//the code below is to be deleted
-				Intent i = new Intent(getApplicationContext(), Dashboard.class);
-				startActivity(i);*/
-			}
-			
-		});
-//Add the password update link on the app and give it functionality	
-		changepass.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// add the intent that the link should redirect to
-				Intent i = new Intent(getApplicationContext(), Updatepass.class);
-				startActivity(i);
-			}
-			
-		});
-
-//give the registration link functionality
-		register.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// add the intent that the link should redirect to
-				Intent i = new Intent(getApplicationContext(), Register.class);
-				startActivity(i);
-			}
-		});
 	}
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,11 +98,6 @@ public class Searchpage extends Activity implements OnClickListener{
 		return true;
 	}
 
-	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	private class login extends AsyncTask<Object, Object, Object>{
 		String id = idno.getText().toString();
@@ -170,9 +145,9 @@ public class Searchpage extends Activity implements OnClickListener{
 		           // String  password = result;
 		            if (result.matches(pass)){					            
 			            Intent intent=new Intent(Searchpage.this,Dashboard.class);
-						/*Bundle bundle = new Bundle();
+						Bundle bundle = new Bundle();
 						bundle.putString("landlordid", id);	//keyword- selected clinic	
-						intent.putExtras(bundle);*/
+						intent.putExtras(bundle);
 					    startActivity(intent);
 					    pDialog.dismiss();
 		            }
@@ -205,6 +180,8 @@ public class Searchpage extends Activity implements OnClickListener{
 				startActivity(i);
 	            return true;
 	        case R.id.reset:
+	        	EditText	idno = (EditText)findViewById(R.id.userid);
+	        	EditText	pword= (EditText)findViewById(R.id.password);
 	        	pword.setText("");
 	        	idno.setText("");
 	            return true;
@@ -212,6 +189,7 @@ public class Searchpage extends Activity implements OnClickListener{
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+	
 	}
 	 
 
