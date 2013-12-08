@@ -77,25 +77,25 @@
             android:layout_alignLeft="@+id/plocation"
             android:layout_below="@+id/plocation"
             android:layout_marginTop="16dp"
-            android:text="@string/ltitle"
+            android:text="@string/pname"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
-            android:id="@+id/ltitle"
+            android:id="@+id/name3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView4"
             android:layout_below="@+id/textView4"
             android:layout_marginTop="15dp"
             android:ems="10" 
-            android:hint="@string/ltitlehint"/>
+            android:hint="@string/pnamehint"/>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/ltitle"
-            android:layout_below="@+id/ltitle"
+            android:layout_alignLeft="@+id/name3"
+            android:layout_below="@+id/name3"
             android:layout_marginTop="31dp"
             android:text="@string/submit" />
 

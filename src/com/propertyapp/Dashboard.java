@@ -30,8 +30,8 @@ public class Dashboard extends Activity implements OnClickListener{
 
 	public void onClick(View v) {
 		
-		
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

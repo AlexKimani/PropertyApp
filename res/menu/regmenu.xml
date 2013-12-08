@@ -5,7 +5,7 @@
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/register1"
-        android:icon="@drawable/unlock"/>
+        android:icon="@drawable/residential"/>
     <item
       	android:id="@+id/reset"
         android:orderInCategory="100"

@@ -2,10 +2,12 @@
 <resources>
 
     <string name="app_name">Property Search</string>
+    <string name="Enter">Ok</string>
+    <string name="cancel">Cancel</string>
     <string name="action_settings">Settings</string>
     <string name="instruction">Enter Your login Credentials to Access Service.</string>
-    <string name="username">Enter your ID Number</string>
-    <string name="idhint">28947678</string>
+    <string name="username">Enter your Username</string>
+    <string name="idhint">dubdabasoduba</string>
     <string name="passcode">Enter your Password</string>
     <string name="passhint">**********</string>
     <string name="login">Login</string>

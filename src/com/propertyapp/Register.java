@@ -72,8 +72,7 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 						
 					}
 					
-				});     		
-		
+				});   		
 		
 		send.setOnClickListener(new OnClickListener(){
 			
@@ -125,6 +124,7 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 		String passcode = password.getText().toString();
 		String job = occupation.getText().toString();
 		String email = emaill.getText().toString();
+		String gen = gend.getSelectedItem().toString();
 		String box = address.getText().toString();
 		String tel = phonenumber.getText().toString();
 		
@@ -153,16 +153,16 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 		        //use HTTPClient to execute the HTTPPost
 		        // Execute HTTP Post Request
 		      //encode URL
-		      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+		      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(9);
 		      nameValuePairs.add(new BasicNameValuePair("firstname", fname));
 		      nameValuePairs.add(new BasicNameValuePair("secondname",sname));  
 		      nameValuePairs.add(new BasicNameValuePair("idnumber",idno));
 		      nameValuePairs.add(new BasicNameValuePair("password", passcode));
 		      nameValuePairs.add(new BasicNameValuePair("occupation", job));
-		      /*nameValuePairs.add(new BasicNameValuePair("gender", gen));*/
+		      nameValuePairs.add(new BasicNameValuePair("gender", gen));
 		      nameValuePairs.add(new BasicNameValuePair("address", box));
 		      nameValuePairs.add(new BasicNameValuePair("mail", email));
-		      nameValuePairs.add(new BasicNameValuePair("telephoner", tel));
+		      nameValuePairs.add(new BasicNameValuePair("telephone", tel));
 		     
 		  
 		      httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -191,22 +191,22 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 		        //check if response is 4
 		        if(result.equals("4")){
 		        	pDialog.dismiss();
-		        	Toast.makeText(Register.this, "Registered",Toast.LENGTH_LONG).show();
+		        	/*Toast.makeText(Register.this, "Registered",Toast.LENGTH_LONG).show();*/
 		        	/*create();*/
 		            }
 		          ///check if response is 5
 		else if (result.equals("5"))
 		{
 			pDialog.dismiss();
-		   Toast.makeText(Register.this, "Registration Failed,Check you connection", Toast.LENGTH_LONG).show();
+		  /* Toast.makeText(Register.this, "Registration Failed,Check you connection", Toast.LENGTH_LONG).show();*/
 		        	
 		 }
 		      ///check if response is 2
 		else if (result.equals("2"))
 		{
 			pDialog.dismiss();
-		   Toast.makeText(Register.this, "Email adress already exists", Toast.LENGTH_LONG).show();
-		        	
+		 /*  Toast.makeText(Register.this, "Email adress already exists", Toast.LENGTH_LONG).show();
+		        	*/
 		        }
 						 
 		 }

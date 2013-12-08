@@ -145,9 +145,9 @@ public class Searchpage extends Activity implements OnClickListener{
 		           // String  password = result;
 		            if (result.matches(pass)){					            
 			            Intent intent=new Intent(Searchpage.this,Dashboard.class);
-						Bundle bundle = new Bundle();
-						bundle.putString("landlordid", id);	//keyword- selected clinic	
-						intent.putExtras(bundle);
+						/*Bundle bundle = new Bundle();
+						bundle.putString("landlordid", id);*/	//keyword- selected clinic	
+						/*intent.putExtras(bundle);*/
 					    startActivity(intent);
 					    pDialog.dismiss();
 		            }
