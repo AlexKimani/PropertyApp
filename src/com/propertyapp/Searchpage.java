@@ -58,7 +58,9 @@ public class Searchpage extends Activity implements OnClickListener{
 
 		switch(v.getId()){
 		case R.id.sub:
-			  if (  ( !idno.getText().toString().equals("")) && ( !pword.getText().toString().equals("")) )
+			Intent l = new Intent(getApplicationContext(),Dashboard.class);
+			startActivity(l);
+			 /* if (  ( !idno.getText().toString().equals("")) && ( !pword.getText().toString().equals("")) )
               {
 				 new login().execute();
 			          		         
@@ -77,7 +79,7 @@ public class Searchpage extends Activity implements OnClickListener{
               {
                   Toast.makeText(getApplicationContext(),
                           "Please fill in the ID Number and Password fields", Toast.LENGTH_SHORT).show();
-              }	
+              }	*/
 			  break;
 		case R.id.forgotpass:
 			Intent i = new Intent(getApplicationContext(), Updatepass.class);
@@ -145,9 +147,9 @@ public class Searchpage extends Activity implements OnClickListener{
 		           // String  password = result;
 		            if (result.matches(pass)){					            
 			            Intent intent=new Intent(Searchpage.this,Dashboard.class);
-						/*Bundle bundle = new Bundle();
-						bundle.putString("landlordid", id);*/	//keyword- selected clinic	
-						/*intent.putExtras(bundle);*/
+						Bundle bundle = new Bundle();
+						bundle.putString("landlordid", id);	//keyword- selected clinic	
+						intent.putExtras(bundle);
 					    startActivity(intent);
 					    pDialog.dismiss();
 		            }

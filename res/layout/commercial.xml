@@ -109,13 +109,51 @@
             android:ems="10"
             android:hint="@string/bnumberhint"
             android:layout_marginTop="16dp" />
+         <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bnumber"
+            android:layout_below="@+id/bnumber"
+            android:layout_marginTop="16dp"
+            android:text="@string/price"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView6"
+            android:layout_below="@+id/textView6"
+            android:ems="10"
+            android:hint="@string/pricehint"
+            android:layout_marginTop="16dp" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/price"
+            android:layout_below="@+id/price"
+            android:layout_marginTop="16dp"
+            android:text="@string/username"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/user3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="15dp"
+            android:ems="10" 
+            android:hint="@string/idhint"/>
 
         <Button
             android:id="@+id/csubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/bnumber"
-            android:layout_below="@+id/bnumber"
+            android:layout_alignLeft="@+id/user3"
+            android:layout_below="@+id/user3"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/submit" />

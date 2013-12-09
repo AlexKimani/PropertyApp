@@ -14,9 +14,11 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -72,7 +74,8 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 						
 					}
 					
-				});   		
+				});     		
+		
 		
 		send.setOnClickListener(new OnClickListener(){
 			
@@ -124,10 +127,9 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 		String passcode = password.getText().toString();
 		String job = occupation.getText().toString();
 		String email = emaill.getText().toString();
-		String gen = gend.getSelectedItem().toString();
 		String box = address.getText().toString();
 		String tel = phonenumber.getText().toString();
-		
+		String gen = gend.getSelectedItem().toString();
 		/*String gen = String.valueOf(gend.getSelectedItem());*/
 		
 		
@@ -198,15 +200,15 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 		else if (result.equals("5"))
 		{
 			pDialog.dismiss();
-		  /* Toast.makeText(Register.this, "Registration Failed,Check you connection", Toast.LENGTH_LONG).show();*/
+		   /*Toast.makeText(Register.this, "Registration Failed,Check you connection", Toast.LENGTH_LONG).show();*/
 		        	
 		 }
 		      ///check if response is 2
 		else if (result.equals("2"))
 		{
 			pDialog.dismiss();
-		 /*  Toast.makeText(Register.this, "Email adress already exists", Toast.LENGTH_LONG).show();
-		        	*/
+		   /*Toast.makeText(Register.this, "Email adress already exists", Toast.LENGTH_LONG).show();*/
+		        	
 		        }
 						 
 		 }
@@ -240,6 +242,29 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.register:
+	        	Intent i = new Intent(getApplicationContext(), Register.class);
+				startActivity(i);
+	            return true;
+	        case R.id.reset:
+	    		 firstname.setText("");
+	    		 secondname.setText("");
+	    		 idnumber.setText("");
+	    		 password.setText("");
+	    		occupation.setText("");
+	    		emaill.setText("");;
+	    		address.setText("");
+	    		phonenumber.setText("");
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 }

@@ -89,13 +89,72 @@
             android:layout_marginTop="15dp"
             android:ems="10" 
             android:hint="@string/pnamehint"/>
+         <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name3"
+            android:layout_below="@+id/name3"
+            android:layout_marginTop="16dp"
+            android:text="@string/ltitle"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/landtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:layout_marginTop="15dp"
+            android:ems="10" 
+            android:hint="@string/ltitlehint"/>
+        
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/landtitle"
+            android:layout_below="@+id/landtitle"
+            android:layout_marginTop="16dp"
+            android:text="@string/price"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView6"
+            android:layout_below="@+id/textView6"
+            android:layout_marginTop="15dp"
+            android:ems="10" 
+            android:hint="@string/pricehint"/>
+                 
+    	<TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/price"
+            android:layout_below="@+id/price"
+            android:layout_marginTop="16dp"
+            android:text="@string/username"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/user1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="15dp"
+            android:ems="10" 
+            android:hint="@string/idhint"/>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/name3"
-            android:layout_below="@+id/name3"
+            android:layout_alignLeft="@+id/user1"
+            android:layout_below="@+id/user1"
             android:layout_marginTop="31dp"
             android:text="@string/submit" />
 
