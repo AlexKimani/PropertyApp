@@ -78,7 +78,9 @@ public class Searchpage extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.sub:
-			new AttemptLogin().execute();
+			Intent o = new Intent(this, Dashboard.class);
+			startActivity(o);
+			/*new AttemptLogin().execute();*/
 			break;
 		case R.id.register:
 			Intent i = new Intent(this, Register.class);

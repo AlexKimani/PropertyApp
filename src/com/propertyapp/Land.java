@@ -41,8 +41,7 @@ public class Land extends Activity implements  OnClickListener{
    // private static final String REGISTER_URL = "http://xxx.xxx.x.x:1234/webservice/register.php";
     
     //testing on Emulator:
-    private static final String PROPERTY_URL = "http://10.0.2.2/Propertyapp/property.php";
-    private static final String TITLE_URL = "http://10.0.2.2/Propertyapp/property.php"; 
+    private static final String PROPERTY_URL = "http://10.0.2.2/Propertyapp/landstore.php"; 
   //testing from a real server:
     //private static final String REGISTER_URL = "http://www.mybringback.com/webservice/register.php";
     
@@ -64,10 +63,11 @@ public class Land extends Activity implements  OnClickListener{
 		title = (EditText)findViewById(R.id.landtitle);
 		}
 	
+	@Override
 	public void onClick(View v){
 		switch(v.getId()){
 		case R.id.submit:
-			new Landregister().toString();	
+			new Landregister().execute();	
 		 break;
 	}
 	}
@@ -79,17 +79,17 @@ class Landregister extends AsyncTask<String, String, String> {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Land.this);
-            pDialog.setMessage("Please wait...");
+            pDialog.setMessage("Posting land...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
         }
 		
-		@Override
+        @Override
 		protected String doInBackground(String... args) {
 			// TODO Auto-generated method stub
 			 // Check for success tag
-            int success;
+            Integer success;
             
         	String siz= size.getText().toString();
         	String plc = place.getText().toString();
@@ -105,7 +105,7 @@ class Landregister extends AsyncTask<String, String, String> {
                 params.add(new BasicNameValuePair("pname",jin));
                 params.add(new BasicNameValuePair("price", val));
                 params.add(new BasicNameValuePair("username", use));
-                params.add(new BasicNameValuePair("ltittle", tit));
+                params.add(new BasicNameValuePair("ltitle", tit));
                 Log.d("request!", "starting");
                 
                 //Posting user data to script 
@@ -118,9 +118,12 @@ class Landregister extends AsyncTask<String, String, String> {
                 // json success element
                 success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
-                	Log.d("Land Registered!", json.toString());              	
-                    new Titleregister().toString();
-                	return json.getString(TAG_MESSAGE);
+                	Log.d("Land Register!", json.toString());
+                	Intent i = new Intent(Land.this, Dashboard.class);
+					finish();
+					startActivity(i);
+                	return json.getString(TAG_MESSAGE); 
+                	
                 }else{
                 	Log.d("Registering Failure!", json.getString(TAG_MESSAGE));
                 	return json.getString(TAG_MESSAGE);
@@ -145,80 +148,6 @@ class Landregister extends AsyncTask<String, String, String> {
 		
 	}
 	
-	
-class Titleregister extends AsyncTask<String, String, String> {
-	
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        pDialog = new ProgressDialog(Land.this);
-        pDialog.setMessage("Registering Land...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(true);
-        pDialog.show();
-    }
-	
-	@Override
-	protected String doInBackground(String... args) {
-		// TODO Auto-generated method stub
-		 // Check for success tag
-        int success;
-        
-    	String siz= size.getText().toString();
-    	String plc = place.getText().toString();
-    	String jin = jina.getText().toString();
-    	String val = value.getText().toString();
-    	String use = user.getText().toString();
-    	String tit = title.getText().toString();
-        try {
-            // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("psize", siz));
-            params.add(new BasicNameValuePair("plocation",plc));  
-            params.add(new BasicNameValuePair("pname",jin));
-            params.add(new BasicNameValuePair("price", val));
-            params.add(new BasicNameValuePair("username", use));
-            params.add(new BasicNameValuePair("ltittle", tit));
-            Log.d("request!", "starting");
-            
-            //Posting user data to script 
-            JSONObject json = jsonParser.makeHttpRequest(
-                   TITLE_URL, "POST", params);
-
-            // full json response
-            Log.d("Registering attempt", json.toString());
-
-            // json success element
-            success = json.getInt(TAG_SUCCESS);
-            if (success == 1) {
-            	Log.d("LandTitle Regsitered!", json.toString());              	
-
-            	return json.getString(TAG_MESSAGE);
-            }else{
-            	Log.d("Registering Failure!", json.getString(TAG_MESSAGE));
-            	return json.getString(TAG_MESSAGE);
-            	
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-		
-	}
-	
-    protected void onPostExecute(String file_url) {
-        // dismiss the dialog once product deleted
-        pDialog.dismiss();
-        if (file_url != null){
-        	Toast.makeText(Land.this, file_url, Toast.LENGTH_LONG).show();
-        }
-
-    }
-	
-}
-
-
 
 
 	@Override
