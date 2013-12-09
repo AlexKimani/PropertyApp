@@ -16,12 +16,12 @@ if (!empty($_POST)) {
     //displaying an error message within the form instead.  
     //We could also do front-end form validation from within our Android App,
     //but it is good to have a have the back-end code do a double check.
-    if (empty($_POST['username']) || empty($_POST['password'])) {
+    if (empty($_POST['firstname']) || empty($_POST['secondname'])|| empty($_POST['username'])|| empty($_POST['password'])|| empty($_POST['occupation'])|| empty($_POST['address'])|| empty($_POST['mail1'])|| empty($_POST['telephone'])) {
         
         
         // Create some data that will be the JSON response 
         $response["success"] = 0;
-        $response["message"] = "Please Enter Both a Username and Password.";
+        $response["message"] = "Please Enter all fields.";
         
         //die will kill the page and not execute any code below, it will also
         //display the parameter... in this case the JSON data our Android
@@ -33,7 +33,7 @@ if (!empty($_POST)) {
     //already a user with the username specificed in the form.  ":user" is just
     //a blank variable that we will change before we execute the query.  We
     //do it this way to increase security, and defend against sql injections
-    $query        = " SELECT 1 FROM users WHERE username = :user";
+    $query        = " SELECT 1 FROM USER_TB WHERE user_username = :user";
     //now lets update what :user should be
     $query_params = array(
         ':user' => $_POST['username']
@@ -65,18 +65,26 @@ if (!empty($_POST)) {
         
         //You could comment out the above die and use this one:
         $response["success"] = 0;
-        $response["message"] = "I'm sorry, this username is already in use";
+        $response["message"] = "Username should be unique";
         die(json_encode($response));
     }
     
     //If we have made it here without dying, then we are in the clear to 
     //create a new user.  Let's setup our new query to create a user.  
     //Again, to protect against sql injects, user tokens such as :user and :pass
-    $query = "INSERT INTO users ( username, password ) VALUES ( :user, :pass ) ";
+    $query = "INSERT INTO USER_TB (user_fname,user_sname,user_username,user_password,user_occupation,user_gender,user_address,user_email,user_phonenumber)
+        VALUES (:fname, :sname,:user,:pass, :job,:gen,:addr, :email,:tel)";
     
     //Again, we need to update our tokens with the actual data:
-    $query_params = array(
+   $query_params = array(
+        ':fname' => $_POST['firstname'],
+        ':sname' => $_POST['secondname'],
         ':user' => $_POST['username'],
+        ':job' => $_POST['occupation'],
+        ':gen' => $_POST['gender'],
+        ':addr' => $_POST['address'],
+        ':email' => $_POST['mail1'],
+        ':tel' => $_POST['telephone'],
         ':pass' => $_POST['password']
     );
     
@@ -101,7 +109,7 @@ if (!empty($_POST)) {
     //json data that will be read by the Android application, which will login
     //the user (or redirect to a different activity, I'm not sure yet..)
     $response["success"] = 1;
-    $response["message"] = "Username Successfully Added!";
+    $response["message"] = "User Registered";
     echo json_encode($response);
     
     //for a php webservice you could do a simple redirect and die.
@@ -113,12 +121,33 @@ if (!empty($_POST)) {
 ?>
 	<h1>Register</h1> 
 	<form action="register.php" method="post"> 
-	    Username:<br /> 
-	    <input type="text" name="username" value="" /> 
+	    Firstname:<br /> 
+	    <input type="text" name="firstname" value="" /> 
 	    <br /><br /> 
-	    Password:<br /> 
-	    <input type="password" name="password" value="" /> 
+	    Secondname:<br /> 
+	    <input type="text" name="secondname" value="" /> 
 	    <br /><br /> 
+         Username:<br /> 
+        <input type="text" name="username" value="" /> 
+        <br /><br /> 
+        Password:<br /> 
+        <input type="password" name="password" value="" /> 
+        <br /><br /> 
+        Occupation:<br /> 
+        <input type="text" name="occupation" value="" /> 
+        <br /><br /> 
+        Gender:<br /> 
+        <input type="text" name="gender" value="" /> 
+        <br /><br /> 
+         Address:<br /> 
+        <input type="text" name="address" value="" /> 
+        <br /><br /> 
+         Email:<br /> 
+        <input type="email" name="mail1" value="" /> 
+        <br /><br /> 
+         Telephone:<br /> 
+        <input type="text" name="telephone" value="" /> 
+        <br /><br />
 	    <input type="submit" value="Register New User" /> 
 	</form>
 	<?php

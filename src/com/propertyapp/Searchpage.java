@@ -84,7 +84,10 @@ public class Searchpage extends Activity implements OnClickListener{
 			Intent i = new Intent(this, Register.class);
 			startActivity(i);
 			break;
-
+		case R.id.forgotpass:
+			Intent f = new Intent(this, Updatepass.class);
+			startActivity(f);
+			break;	
 		default:
 			break;
 		}
