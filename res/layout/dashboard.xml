@@ -34,7 +34,7 @@
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
             android:layout_marginTop="16dp"
-            android:text="@string/username"
+            android:text="@string/price"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_below="@+id/textView2"
             android:layout_marginTop="15dp"
             android:ems="10"
-            android:hint="@string/idhint"
+            android:hint="@string/pricehint"
             android:inputType="phone" >
 
             <requestFocus />

@@ -36,11 +36,10 @@
     <string name="submit">Submit</string>
     <string name="Search">Fill in spaces to search property</string>
     <string name="property">Select property</string>
-    <string-array name="propertysearch">
-      <item>....</item>
+    <string-array name="propertysearch">>
       <item>Land</item>
-      <item>Commercial</item>
-      <item>Residential</item>
+      <item>Commercial House</item>
+      <item>Residential House</item>
     </string-array>
     <string name="location">Enter location if any</string>
     <string name="lochint">Kahawa</string>

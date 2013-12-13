@@ -33,8 +33,7 @@
         </activity>
         <activity
          android:name="com.propertyapp.Dashboard"
-         android:label="@string/app_name"
-         android:theme="@style/Dashboard"></activity>
+         android:label="@string/app_name"></activity>
          <activity
         android:name="com.propertyapp.Land"
         android:label="@string/app_name">
@@ -45,6 +44,10 @@
         </activity>
         <activity
         android:name="com.propertyapp.Residential"
+        android:label="@string/app_name">
+        </activity>
+                <activity
+        android:name="com.propertyapp.Results"
         android:label="@string/app_name">
         </activity>
     </application>

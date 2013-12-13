@@ -79,6 +79,7 @@ class Landregister extends AsyncTask<String, String, String> {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Land.this);
+            pDialog.setTitle("Contacting Servers");
             pDialog.setMessage("Posting land...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -169,6 +170,9 @@ class Landregister extends AsyncTask<String, String, String> {
 	        	size.setText("");
 	        	place.setText("");
 	        	jina.setText("");
+	        	user.setText("");
+	        	value.setText("");
+	        	title.setText("");
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

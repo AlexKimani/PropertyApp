@@ -122,6 +122,7 @@ public class Register extends Activity implements OnItemSelectedListener, OnClic
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Register.this);
+            pDialog.setTitle("Contacting Servers");
             pDialog.setMessage("Creating User...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);

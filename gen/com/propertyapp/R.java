@@ -37,14 +37,15 @@ public final class R {
         public static final int user=0x7f020009;
     }
     public static final class id {
-        public static final int addcommercial=0x7f090036;
-        public static final int addland=0x7f090034;
-        public static final int addmore=0x7f090037;
-        public static final int addresidential=0x7f090035;
+        public static final int addcommercial=0x7f09003c;
+        public static final int addland=0x7f09003a;
+        public static final int addmore=0x7f09003d;
+        public static final int addresidential=0x7f09003b;
         public static final int address=0x7f090023;
         public static final int bnumber=0x7f090008;
+        public static final int box=0x7f090030;
         public static final int button1=0x7f090011;
-        public static final int confirmpass=0x7f090031;
+        public static final int confirmpass=0x7f090037;
         public static final int csubmit=0x7f09000d;
         public static final int email=0x7f090024;
         public static final int fname=0x7f09001d;
@@ -54,9 +55,9 @@ public final class R {
         public static final int idsearch=0x7f09000e;
         public static final int landtitle=0x7f090015;
         public static final int location=0x7f090010;
-        public static final int login=0x7f090039;
+        public static final int login=0x7f09003f;
         public static final int name3=0x7f090014;
-        public static final int newpass=0x7f090030;
+        public static final int newpass=0x7f090036;
         public static final int nor=0x7f09002d;
         public static final int occupation=0x7f090021;
         public static final int password=0x7f090019;
@@ -66,13 +67,16 @@ public final class R {
         public static final int pname=0x7f090002;
         public static final int pname1=0x7f09002a;
         public static final int price=0x7f09000a;
+        public static final int propertyname=0x7f090033;
+        public static final int propertyprice=0x7f090034;
+        public static final int propertysize=0x7f090035;
         public static final int psize=0x7f090004;
         public static final int psize1=0x7f09002b;
         public static final int pukubwa=0x7f090013;
         public static final int register=0x7f09001c;
-        public static final int reset=0x7f090038;
+        public static final int reset=0x7f09003e;
         public static final int rsubmit=0x7f09002f;
-        public static final int search=0x7f090033;
+        public static final int search=0x7f090039;
         public static final int sname=0x7f09001e;
         public static final int spinner1=0x7f09000f;
         public static final int sub=0x7f09001b;
@@ -89,12 +93,14 @@ public final class R {
         public static final int textView7=0x7f09000b;
         public static final int textView8=0x7f090025;
         public static final int textView9=0x7f090027;
-        public static final int update=0x7f090032;
+        public static final int update=0x7f090038;
         public static final int user1=0x7f090016;
         public static final int user2=0x7f09002e;
         public static final int user3=0x7f09000c;
+        public static final int useremail=0x7f090032;
         public static final int userid=0x7f090018;
         public static final int username=0x7f090012;
+        public static final int usertelephone=0x7f090031;
     }
     public static final class layout {
         public static final int commercial=0x7f030000;
@@ -104,7 +110,9 @@ public final class R {
         public static final int loginpge=0x7f030004;
         public static final int registration=0x7f030005;
         public static final int residential=0x7f030006;
-        public static final int updatepass=0x7f030007;
+        public static final int results=0x7f030007;
+        public static final int single_post=0x7f030008;
+        public static final int updatepass=0x7f030009;
     }
     public static final class menu {
         public static final int dashboardmenu=0x7f080000;

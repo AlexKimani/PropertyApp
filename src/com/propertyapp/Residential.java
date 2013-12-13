@@ -1,22 +1,19 @@
 package com.propertyapp;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +25,30 @@ import android.widget.Toast;
 public class Residential extends Activity implements OnClickListener{
     Button tuma;
     EditText jina,ukubwa,mahali,rumnos,value,user;
+    
+	 // Progress Dialog
+    private ProgressDialog pDialog;
+ 
+    // JSON parser class
+    JSONParser jsonParser = new JSONParser();
+    
+    //php register script
+    
+    //localhost :  
+    //testing on your device
+    //put your local ip instead,  on windows, run CMD > ipconfig
+    //or in mac's terminal type ifconfig and look for the ip under en0 or en1
+   // private static final String REGISTER_URL = "http://xxx.xxx.x.x:1234/webservice/register.php";
+    
+    //testing on Emulator:
+    private static final String RESIDENTIAL_URL = "http://10.0.2.2/Propertyapp/resstore.php"; 
+  //testing from a real server:
+    //private static final String REGISTER_URL = "http://www.mybringback.com/webservice/register.php";
+    
+    //ids
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,107 +67,86 @@ public class Residential extends Activity implements OnClickListener{
 	public void onClick(View v){
 		switch(v.getId()){
 		case R.id.rsubmit:
-			 if (  ( !jina.getText().toString().equals("")) && ( !ukubwa.getText().toString().equals("")) && ( !mahali.getText().toString().equals(""))&& ( !rumnos.getText().toString().equals(""))&& ( !value.getText().toString().equals(""))&& ( !user.getText().toString().equals("")))
-             {
-				 new storeresidential().execute();
-			          		         
-             }
-             else
-             {
-                 Toast.makeText(getApplicationContext(),
-                         "Please fill in all fields", Toast.LENGTH_SHORT).show();
-             }	
+			new resstore().execute();
 			break;		
 		}
 		
 	}
 	
-	private class storeresidential extends AsyncTask<Object, Object, Object>{	
-		String siz= ukubwa.getText().toString();
-		String plc = mahali.getText().toString();
-		String jin = jina.getText().toString();
-		String val = value.getText().toString();
-		String use = user.getText().toString();
-		String tit = rumnos.getText().toString();
-		 private ProgressDialog pDialog;
-		 @Override
-         protected void onPreExecute() {
-             super.onPreExecute();
-            /* pDialog = new ProgressDialog(Land.this);
-             pDialog.setTitle("Contacting Servers");
-             pDialog.setMessage("Please Wait...");
-             pDialog.setIndeterminate(false);
-             pDialog.setCancelable(true);
-             pDialog.show();*/
-         }	
-		 
-		 
 
-		@Override
-		protected Object doInBackground(Object... params) { 
-			
-			try {
+class resstore extends AsyncTask<String, String, String> {
+		
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Residential.this);
+            pDialog.setTitle("Contacting Servers");
+            pDialog.setMessage("Posting Residential House...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+		
+        @Override
+		protected String doInBackground(String... args) {
+			// TODO Auto-generated method stub
+			 // Check for success tag
+            Integer success;
+            
+        	String siz= ukubwa.getText().toString();
+        	String plc = mahali.getText().toString();
+        	String jin = jina.getText().toString();
+        	String val = value.getText().toString();
+        	String use = user.getText().toString();
+        	String tit = rumnos.getText().toString();
+            try {
+                // Building Parameters
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("psize", siz));
+                params.add(new BasicNameValuePair("plocation",plc));  
+                params.add(new BasicNameValuePair("pname",jin));
+                params.add(new BasicNameValuePair("price", val));
+                params.add(new BasicNameValuePair("username", use));
+                params.add(new BasicNameValuePair("nor", tit));
+                Log.d("request!", "starting");
+                
+                //Posting user data to script 
+                JSONObject json = jsonParser.makeHttpRequest(RESIDENTIAL_URL, "POST", params);
  
-		    	//create a http default client - initialize the HTTp client
-			      DefaultHttpClient httpclient = new DefaultHttpClient();
-			        //Create a HTTp post object to hold our data - url
-			      HttpPost httppost = new HttpPost("http://10.0.2.2/Propertyapp/postres.php");
-			      HttpPost httppost2 = new HttpPost("http://10.0.2.2/Propertyapp/postrooms.php");
-			      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(6);
-			      nameValuePairs.add(new BasicNameValuePair("size",siz));
-			      nameValuePairs.add(new BasicNameValuePair("location",plc));  
-			      nameValuePairs.add(new BasicNameValuePair("name",jin));
-			      nameValuePairs.add(new BasicNameValuePair("value",val));
-			      nameValuePairs.add(new BasicNameValuePair("username",use));
-			      nameValuePairs.add(new BasicNameValuePair("rooms",tit));
-			      
-			      httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			      httppost2.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			      HttpResponse response = httpclient.execute(httppost);
-			      HttpResponse response2 = httpclient.execute(httppost2);
-
-			       
-			        //use Input stream to read the http client response
-			        InputStream inputStream = response.getEntity().getContent();
-			        InputStream inputStream2 = response2.getEntity().getContent();
-			        
-			        //use buffered reader and InputStreamReader to read the input stream
-			        BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream), 4096);
-			        BufferedReader rd2 = new BufferedReader(new InputStreamReader(inputStream2), 4096);
-			        String line;
-			        String line2;
-			        //initialize StringBuilder
-			        StringBuilder sb =  new StringBuilder();
-			        StringBuilder sb2 =  new StringBuilder();
-			        //read everything from the Buffered reader and append the to the
-			        //string builder
-			        while ((line = rd.readLine()) != null) 
-			        {
-			        		sb.append(line);
-			        }
-			        while ((line2 = rd2.readLine()) != null) 
-			        {
-			        		sb2.append(line);
-			        }
-			        rd.close();
-			        rd2.close();
-			        //our result
-			        String result = sb.toString();
-			        String result2 = sb2.toString();
-			        inputStream.close();
-			        inputStream2.close();
+                // full json response
+                Log.d("Registering attempt", json.toString());
+ 
+                // json success element
+                success = json.getInt(TAG_SUCCESS);
+                if (success == 1) {
+                	Log.d("House Register!", json.toString());
+                	Intent i = new Intent(Residential.this, Dashboard.class);
+					finish();
+					startActivity(i);
+                	return json.getString(TAG_MESSAGE); 
+                	
+                }else{
+                	Log.d("Registering Failure!", json.getString(TAG_MESSAGE));
+                	return json.getString(TAG_MESSAGE);
+                	
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+ 
+            return null;
 			
-		   }
-		        catch (Exception e)
-		        {
-		        	/*pDialog.dismiss();*/
-		            Toast.makeText(getApplicationContext(), "Error inside set:"+e.toString(), Toast.LENGTH_LONG).show();
-		        }
-			
-			return true;
 		}
 		
-	
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once product deleted
+            pDialog.dismiss();
+            if (file_url != null){
+            	Toast.makeText(Residential.this, file_url, Toast.LENGTH_LONG).show();
+            }
+ 
+        }
+		
 	}
 	
 	

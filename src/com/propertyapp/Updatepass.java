@@ -93,6 +93,7 @@ public class Updatepass extends Activity implements OnClickListener {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(Updatepass.this);
+            pDialog.setTitle("Contacting Servers");
             pDialog.setMessage("Updating Passwords...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);

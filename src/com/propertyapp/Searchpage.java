@@ -102,6 +102,7 @@ public class Searchpage extends Activity implements OnClickListener{
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(Searchpage.this);
+			pDialog.setTitle("Contacting Servers");
 			pDialog.setMessage("Attempting login...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
