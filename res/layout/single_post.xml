@@ -5,21 +5,12 @@
     android:background="#f0f0f0"
     android:orientation="vertical" >
 
-            <LinearLayout
-                android:id="@+id/box"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:orientation="vertical"
-                android:padding="5dp" >
-
                 <TextView
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:paddingBottom="2dip"
-                    android:paddingLeft="5dp"
                     android:paddingTop="6dip"
                     android:textColor="#333"
                     android:textSize="16sp"
@@ -47,9 +38,9 @@
                     android:id="@+id/propertyname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dip"
-                    android:paddingLeft="8dp"
-                    android:textColor="#888" >
+                    android:gravity="left"
+                    android:textColor="#acacac"
+                    android:textStyle="bold" >
                 </TextView>
                 <TextView
                         android:id="@+id/propertyprice"
@@ -77,5 +68,4 @@
                         android:textColor="#acacac"
                         android:textStyle="bold" >
                     </TextView>
-            </LinearLayout>
         </LinearLayout>
