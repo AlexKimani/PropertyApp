@@ -43,7 +43,7 @@ public class ApplicationAdapter extends ArrayAdapter<Application> {
 	            TextView uname = (TextView)v.findViewById(R.id.username);
 	            TextView utel = (TextView)v.findViewById(R.id.usertelephone);
 	            TextView uemail = (TextView)v.findViewById(R.id.useremail);
-	           
+	            TextView purp = (TextView)v.findViewById(R.id.purposel);
 	            
 	            if(pname != null) pname.setText("Property Name:  "+app.getProperty_name());
 	            if(psize != null) psize.setText("Property Size:  "+app.getProperty_size());
@@ -52,6 +52,7 @@ public class ApplicationAdapter extends ArrayAdapter<Application> {
 	            if(uname != null) uname.setText("Owner Username:  "+app.getUser_username());
 	            if(utel != null) utel.setText("Owner Phonumber:  "+app.getUser_phonenumber());
 	            if(uemail != null)uemail.setText("Owner Email:  "+app.getUser_email());
+	            if(purp != null)purp.setText("Property is:  "+app.getPurpose());
 	            }
 	                
 	        return v;

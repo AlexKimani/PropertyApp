@@ -83,7 +83,8 @@ public class FetchDataTaskc extends AsyncTask<String, Void, String>{
                 app.setUser_username(json.getString("user_username"));
                 app.setUser_phonenumber(json.getString("user_phonenumber"));
                 app.setUser_email(json.getString("user_email"));
-                app.setCommercial_bnum(json.getString("commercial_bnum")); // add the app to apps list
+                app.setCommercial_bnum(json.getString("commercial_bnum"));
+                app.setPurpose(json.getString("commercial_type"));// add the app to apps list
                 apps.add(app);
             }
             

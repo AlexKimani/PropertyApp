@@ -151,34 +151,13 @@ if (!empty($_POST)) {
 
 
    
-   $query2 = "INSERT INTO COMMERCIAL_TB(commercial_bnum,property_id) VALUES (:nom,'$field4')";
+   $query2 = "INSERT INTO COMMERCIAL_TB(commercial_bnum,commercial_type,property_id) VALUES (:nom,:purp,'$field4')";
     
     //Again, we need to update our tokens with the actual data:
    $query_params = array(
-        ':nom' => $_POST['Bnumber']
+        ':nom' => $_POST['Bnumber'],
+        ':purp' => $_POST['purpose']
     );
-    
-    //time to run our query, and create the user
-    try {
-        $stmt   = $db->prepare($query2);
-        $result = $stmt->execute($query_params);
-    }
-    catch (PDOException $ex) {
-        // For testing, you could use a die and message. 
-        //die("Failed to run query: " . $ex->getMessage());
-        
-        //or just use this use this one:
-        $response["success"] = 0;
-        $response["message"] = "Database Error5. Please Try Again!";
-        die(json_encode($response));
-    }
-    
-    //If we have made it this far without dying, we have successfully added
-    //a new user to our database.  We could do a few things here, such as 
-    //redirect to the login page.  Instead we are going to echo out some
-    //json data that will be read by the Android application, which will login
-    //the user (or redirect to a different activity, I'm not sure yet..)
-    $response["success"] = 1;
     $response["message"] = "commercial house Registered";
     echo json_encode($response);
     

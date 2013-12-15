@@ -76,4 +76,13 @@
                         android:textColor="#acacac"
                         android:textStyle="bold" >
                     </TextView>
+               <TextView
+                        android:id="@+id/purposer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:textColor="#acacac"
+                        android:textStyle="bold" >
+                    </TextView>
         </LinearLayout>
+        

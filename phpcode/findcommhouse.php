@@ -15,7 +15,7 @@ if(mysqli_connect_errno($con)) {
 
 // query the application data
 /*AND ( property_price <='$value' AND  property_location= '$place')*/
-$sql = "SELECT user_username,user_email,user_phonenumber,property_name,property_size,property_location,property_price,commercial_bnum FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id INNER JOIN COMMERCIAL_TB ON PROPERTY_TB.property_id = COMMERCIAL_TB.property_id  WHERE property_type='commercial_house'";
+$sql = "SELECT * FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id INNER JOIN COMMERCIAL_TB ON PROPERTY_TB.property_id = COMMERCIAL_TB.property_id  WHERE property_type='commercial_house'";
 $result = mysqli_query($con, $sql);
 
 // an array to save the application data

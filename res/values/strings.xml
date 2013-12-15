@@ -71,5 +71,11 @@
     <string name="norhint">4 bedroom</string>
     <string name="price">Enter the Property Price</string>
     <string name="pricehint">$40000</string>
+    <string name="type">Enter Property Purpose</string>
+    <string-array name="purpose">
+        <item>For Sale</item>
+        <item>For Rent</item>
+        <item>For Lease</item>
+    </string-array>
     
 </resources>

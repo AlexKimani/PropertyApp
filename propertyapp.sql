@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2013 at 09:42 AM
+-- Generation Time: Dec 15, 2013 at 03:06 AM
 -- Server version: 5.5.34-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3
 
@@ -31,10 +31,11 @@ USE `PropertyApp`;
 CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
   `com_id` int(11) NOT NULL AUTO_INCREMENT,
   `commercial_bnum` varchar(45) NOT NULL,
+  `commercial_type` varchar(20) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`com_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -45,10 +46,11 @@ CREATE TABLE IF NOT EXISTS `COMMERCIAL_TB` (
 CREATE TABLE IF NOT EXISTS `LAND_TB` (
   `land_id` int(11) NOT NULL AUTO_INCREMENT,
   `land_title` varchar(45) NOT NULL,
+  `land_type` varchar(20) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`land_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 -- --------------------------------------------------------
 
@@ -62,10 +64,11 @@ CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
   `property_size` varchar(45) NOT NULL,
   `property_type` varchar(45) NOT NULL,
   `property_location` varchar(60) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `property_price` varchar(30) NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`property_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
 
 -- --------------------------------------------------------
 
@@ -76,10 +79,11 @@ CREATE TABLE IF NOT EXISTS `PROPERTY_TB` (
 CREATE TABLE IF NOT EXISTS `RESIDENTIAL_TB` (
   `residential_id` int(11) NOT NULL AUTO_INCREMENT,
   `residential_nor` varchar(45) NOT NULL,
+  `residential_type` varchar(20) NOT NULL,
   `property_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`residential_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `RESIDENTIAL_TB` (
 CREATE TABLE IF NOT EXISTS `USER_TB` (
   `user_fname` varchar(45) NOT NULL,
   `user_sname` varchar(45) NOT NULL,
-  `user_idno` varchar(20) NOT NULL,
+  `user_username` varchar(20) NOT NULL,
   `user_password` varchar(30) NOT NULL,
   `user_occupation` varchar(60) NOT NULL,
   `user_gender` varchar(10) NOT NULL,
@@ -99,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `USER_TB` (
   `user_phonenumber` varchar(20) NOT NULL,
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Constraints for dumped tables

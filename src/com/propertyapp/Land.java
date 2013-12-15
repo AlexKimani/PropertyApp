@@ -18,14 +18,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class Land extends Activity implements  OnClickListener{
 	Button send;
 	EditText size,place,jina,value,user,title;
-	
+	Spinner purp;
 	 // Progress Dialog
     private ProgressDialog pDialog;
  
@@ -61,7 +65,33 @@ public class Land extends Activity implements  OnClickListener{
 		value = (EditText)findViewById(R.id.price);
 		user = (EditText)findViewById(R.id.user1);
 		title = (EditText)findViewById(R.id.landtitle);
+		 purp =(Spinner)findViewById(R.id.typel);
+	        // Create an ArrayAdapter using the string array and a default spinner layout
+			ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.purpose, android.R.layout.simple_spinner_item);
+			// Specify the layout to use when the list of choices appears
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			// Apply the adapter to the spinner
+		 purp.setAdapter(adapter);
+		purp.setOnItemSelectedListener(new OnItemSelectedListener(){
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View arg1,int arg2, long arg3) {
+					parent.getItemAtPosition(arg2);	
+					return;
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			});
+		
+		
 		}
+	
+	
 	
 	@Override
 	public void onClick(View v){
@@ -98,6 +128,7 @@ class Landregister extends AsyncTask<String, String, String> {
         	String val = value.getText().toString();
         	String use = user.getText().toString();
         	String tit = title.getText().toString();
+        	String how = purp.getSelectedItem().toString();
             try {
                 // Building Parameters
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -107,6 +138,7 @@ class Landregister extends AsyncTask<String, String, String> {
                 params.add(new BasicNameValuePair("price", val));
                 params.add(new BasicNameValuePair("username", use));
                 params.add(new BasicNameValuePair("ltitle", tit));
+                params.add(new BasicNameValuePair("purpose", how));
                 Log.d("request!", "starting");
                 
                 //Posting user data to script 

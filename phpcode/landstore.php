@@ -151,11 +151,12 @@ if (!empty($_POST)) {
 
 
    
-   $query2 = "INSERT INTO LAND_TB(land_title, property_id) VALUES (:title,'$field4')";
+   $query2 = "INSERT INTO LAND_TB(land_title,land_type, property_id) VALUES (:title,:purp,'$field4')";
     
     //Again, we need to update our tokens with the actual data:
    $query_params = array(
-        ':title' => $_POST['ltitle']
+        ':title' => $_POST['ltitle'],
+        ':purp' => $_POST['purpose']
     );
     
     //time to run our query, and create the user
@@ -179,7 +180,7 @@ if (!empty($_POST)) {
     //json data that will be read by the Android application, which will login
     //the user (or redirect to a different activity, I'm not sure yet..)
     $response["success"] = 1;
-    $response["message"] = "Title Registered";
+    $response["message"] = "Land Registered";
     echo json_encode($response);
     
     

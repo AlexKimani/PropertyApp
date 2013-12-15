@@ -151,11 +151,12 @@ if (!empty($_POST)) {
 
 
    
-   $query2 = "INSERT INTO RESIDENTIAL_TB(residential_nor, property_id) VALUES (:rooms,'$field4')";
+   $query2 = "INSERT INTO RESIDENTIAL_TB(residential_nor,residential_type, property_id) VALUES (:rooms,:purp,'$field4')";
     
     //Again, we need to update our tokens with the actual data:
    $query_params = array(
-        ':rooms' => $_POST['nor']
+        ':rooms' => $_POST['nor'],        
+        ':purp' => $_POST['purpose']
     );
     
     //time to run our query, and create the user

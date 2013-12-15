@@ -127,7 +127,8 @@
             android:layout_below="@+id/textView6"
             android:layout_marginTop="15dp"
             android:ems="10" 
-            android:hint="@string/pricehint"/>
+            android:hint="@string/pricehint"
+            android:inputType="number"/>
                  
     	<TextView
             android:id="@+id/textView7"
@@ -148,13 +149,33 @@
             android:layout_marginTop="15dp"
             android:ems="10" 
             android:hint="@string/idhint"/>
+       <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/user1"
+            android:layout_below="@+id/user1"
+            android:layout_marginTop="18dp"
+            android:text="@string/type"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Spinner
+            android:id="@+id/typel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_below="@+id/textView8"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="13dp"
+			android:entries="@array/purpose"
+			android:prompt="@string/type"/>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/user1"
-            android:layout_below="@+id/user1"
+            android:layout_alignLeft="@+id/typel"
+            android:layout_below="@+id/typel"
             android:layout_marginTop="31dp"
             android:text="@string/submit" />
 

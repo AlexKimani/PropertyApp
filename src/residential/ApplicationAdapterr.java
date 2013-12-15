@@ -44,6 +44,7 @@ public class ApplicationAdapterr extends ArrayAdapter<Applicationr> {
 	            TextView utel = (TextView)v.findViewById(R.id.usertelephone);
 	            TextView uemail = (TextView)v.findViewById(R.id.useremail);
 	            TextView nor = (TextView)v.findViewById(R.id.nor);
+	            TextView purp = (TextView)v.findViewById(R.id.purposer);
 	           
 	            
 	            if(pname != null) pname.setText("Property Name:  "+app.getProperty_name());
@@ -54,6 +55,7 @@ public class ApplicationAdapterr extends ArrayAdapter<Applicationr> {
 	            if(utel != null) utel.setText("Owner Phonumber:  "+app.getUser_phonenumber());
 	            if(uemail != null)uemail.setText("Owner Email:  "+app.getUser_email());
 	            if(nor != null)nor.setText("Number of Bedrooms:  "+app.getResidential_nor());
+	            if(purp != null)purp.setText("Property is:  "+app.getPurpose());
 	            }
 	                
 	        return v;

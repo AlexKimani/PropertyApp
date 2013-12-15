@@ -8,6 +8,7 @@ public class Application {
 	private String user_username;
 	private String user_email;
 	private String user_phonenumber;
+	private String purpose;
 	
 	public String getProperty_name() {
 		return property_name;
@@ -50,6 +51,12 @@ public class Application {
 	}
 	public void setUser_phonenumber(String user_phonenumber) {
 		this.user_phonenumber = user_phonenumber;
+	}
+	public String getPurpose() {
+		return purpose;
+	}
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
 }

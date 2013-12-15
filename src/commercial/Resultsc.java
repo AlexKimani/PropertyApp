@@ -21,7 +21,7 @@ public class Resultsc extends ListActivity implements FetchDataListener{
     private void initView() {
     	
         // show progress dialog
-        dialog = ProgressDialog.show(this, "Contacting Servers ", "Searching..."); 
+        dialog = ProgressDialog.show(this, "Contacting Servers ", "Searching for Commercial Houses..."); 
         String url = "http://10.0.2.2/Propertyapp/findcommhouse.php"; 
         FetchDataTaskc task = new FetchDataTaskc(this);
         task.execute(url);

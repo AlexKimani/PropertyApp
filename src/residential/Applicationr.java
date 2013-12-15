@@ -9,6 +9,7 @@ public class Applicationr {
 	private String user_email;
 	private String user_phonenumber;
 	private String residential_nor;
+	private String purpose;
 	
 	public String getProperty_name() {
 		return property_name;
@@ -57,6 +58,12 @@ public class Applicationr {
 	}
 	public void setResidential_nor(String residential_nor) {
 		this.residential_nor = residential_nor;
+	}
+	public String getPurpose() {
+		return purpose;
+	}
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
 }

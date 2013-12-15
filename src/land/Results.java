@@ -21,7 +21,7 @@ public class Results extends ListActivity implements FetchDataListener{
     private void initView() {
     	
         // show progress dialog
-        dialog = ProgressDialog.show(this, "Contacting Servers ", "Searching..."); 
+        dialog = ProgressDialog.show(this, "Contacting Servers ", "Searching for land..."); 
         String url = "http://10.0.2.2/Propertyapp/findland.php"; 
         FetchDataTask task = new FetchDataTask(this);
         task.execute(url);

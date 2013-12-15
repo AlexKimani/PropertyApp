@@ -9,6 +9,7 @@ public class Applicationc {
 	private String user_email;
 	private String user_phonenumber;
 	private String commercial_bnum;
+	private String purpose;
 	
 	public String getProperty_name() {
 		return property_name;
@@ -57,6 +58,12 @@ public class Applicationc {
 	}
 	public void setCommercial_bnum(String commercial_bnum) {
 		this.commercial_bnum = commercial_bnum;
+	}
+	public String getPurpose() {
+		return purpose;
+	}
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
 }
