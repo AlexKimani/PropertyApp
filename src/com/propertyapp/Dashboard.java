@@ -1,8 +1,23 @@
 package com.propertyapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import land.Results;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
+import residential.Resultsr;
+
+import commercial.Resultsc;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +37,7 @@ public class Dashboard extends Activity implements OnClickListener{
 	
 	 // JSON parser class
     JSONParser jsonParser = new JSONParser();
-    
+    String url = "http://10.0.2.2/Propertyapp/land.php"; 
     //php register script
     
     //localhost :  
@@ -66,27 +81,63 @@ public class Dashboard extends Activity implements OnClickListener{
 
 
 	public void onClick(View v) {
+		if(value.getText().toString().equals("") || (place.getText().toString().equals(""))){
+			Toast.makeText(Dashboard.this, "Please fill the search values", Toast.LENGTH_LONG).show();
+		}
+
+		else
+		{
 		if(type.getSelectedItem().equals("Land")){
-		String	val= value.getText().toString();
-		String  plc= place.getText().toString();
+			new senddata().execute();
 			Intent i = new Intent(Dashboard.this, Results.class);
-			Bundle bundle = new Bundle();
-			bundle.putString("msg1",val);
-			bundle.putString("msg2", plc);
-			i.putExtras(bundle);
 			startActivity(i);
 		}
 		else if(type.getSelectedItem().equals("Commercial House")){
+			Intent c = new Intent(Dashboard.this, Resultsc.class);
+			startActivity(c);
 			
 		}
 		else if(type.getSelectedItem().equals("Residential House")){
-			
+			Intent r = new Intent(Dashboard.this, Resultsr.class);
+			startActivity(r);
 		}
 		else
 		{
 			Toast.makeText(Dashboard.this, "Please select property type", Toast.LENGTH_LONG).show();
 		}
+		}
 	}
+	
+	 
+    class senddata extends AsyncTask<String, String, String> {
+			String val1 = value.getText().toString();
+			String plc1 = place.getText().toString();
+			 JSONParser jsonParser = new JSONParser();
+			@Override
+			protected String doInBackground(String... args) {
+				// Building Parameters
+				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("price",val1));
+				params.add(new BasicNameValuePair("location",plc1));  
+				Log.d("request!", "starting");
+				
+				//Posting user data to script 
+				JSONObject json2 = jsonParser.makeHttpRequest(url, "POST", params);
+	 
+	            return null;
+				
+			}
+			
+	        protected void onPostExecute(String file_url) {
+	            // dismiss the dialog once product deleted
+	           /* dialog.dismiss();*/
+	            if (file_url != null){
+	            	Toast.makeText(Dashboard.this, file_url, Toast.LENGTH_LONG).show();
+	            }
+	 
+	        }
+			
+		}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

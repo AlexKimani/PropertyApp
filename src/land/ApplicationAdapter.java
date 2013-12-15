@@ -1,6 +1,9 @@
-package com.propertyapp;
+package land;
 
 import java.util.List;
+
+import com.propertyapp.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.propertyapp;
+package commercial;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,11 +18,11 @@ import org.json.JSONObject;
 
 import android.os.AsyncTask;
 
-public class FetchDataTask extends AsyncTask<String, Void, String>{
+public class FetchDataTaskc extends AsyncTask<String, Void, String>{
     private final FetchDataListener listener;
     private String msg;
     
-    public FetchDataTask(FetchDataListener listener) {
+    public FetchDataTaskc(FetchDataListener listener) {
         this.listener = listener;
     }
     
@@ -36,15 +36,19 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
         try {
             // create http connection
             HttpClient client = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(url);            
+            HttpGet httpget = new HttpGet(url);
+            
             // connect
-            HttpResponse response = client.execute(httpget);            
+            HttpResponse response = client.execute(httpget);
+            
             // get response
-            HttpEntity entity = response.getEntity();            
+            HttpEntity entity = response.getEntity();
+            
             if(entity == null) {
                 msg = "No response from server";
                 return null;        
-            }         
+            }
+         
             // get response content and convert it to json string
             InputStream is = entity.getContent();
             return streamToString(is);
@@ -67,11 +71,11 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
             // convert json string to json array
             JSONArray aJson = new JSONArray(sJson);
             // create apps list
-            List<Application> apps = new ArrayList<Application>();
+            List<Applicationc> apps = new ArrayList<Applicationc>();
             
             for(int i=0; i<aJson.length(); i++) {
                 JSONObject json = aJson.getJSONObject(i);
-                Application app = new Application();
+                Applicationc app = new Applicationc();
                 app.setProperty_name(json.getString("property_name"));
                 app.setProperty_size(json.getString("property_size"));
                 app.setProperty_location(json.getString("property_location"));
@@ -79,16 +83,14 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
                 app.setUser_username(json.getString("user_username"));
                 app.setUser_phonenumber(json.getString("user_phonenumber"));
                 app.setUser_email(json.getString("user_email"));
-               
-                
-                // add the app to apps list
+                app.setCommercial_bnum(json.getString("commercial_bnum")); // add the app to apps list
                 apps.add(app);
             }
             
             //notify the activity that fetch data has been complete
             if(listener != null) listener.onFetchComplete(apps);
         } catch (JSONException e) {
-            msg = "Invalid response";
+            msg = "Invalid response " +e.toString();
             if(listener != null) listener.onFetchFailure(msg);
             return;
         }        

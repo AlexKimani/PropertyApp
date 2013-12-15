@@ -26,8 +26,7 @@ if (!empty($_POST)) {
     //initial query
    /* property_name,property_size,property_location,property_price,user_username,user_email,user_phonenumber */
   /* AND ( property_price=:value AND property_location= :place)*/
-$query = "SELECT * FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id WHERE property_type='land' ;
-";
+$query = "SELECT * FROM PROPERTY_TB INNER JOIN USER_TB ON PROPERTY_TB.user_id = USER_TB.user_id WHERE property_type='land'";
  $query_params = array(
         ':value' => $_POST['price'],
         ':place' => $_POST['location']

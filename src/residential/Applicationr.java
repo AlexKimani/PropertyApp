@@ -1,6 +1,6 @@
-package com.propertyapp;
+package residential;
 
-public class Application {
+public class Applicationr {
 	private String property_name;
 	private String property_size;
 	private String property_location;
@@ -8,6 +8,7 @@ public class Application {
 	private String user_username;
 	private String user_email;
 	private String user_phonenumber;
+	private String residential_nor;
 	
 	public String getProperty_name() {
 		return property_name;
@@ -50,6 +51,12 @@ public class Application {
 	}
 	public void setUser_phonenumber(String user_phonenumber) {
 		this.user_phonenumber = user_phonenumber;
+	}
+	public String getResidential_nor() {
+		return residential_nor;
+	}
+	public void setResidential_nor(String residential_nor) {
+		this.residential_nor = residential_nor;
 	}
 
 }
